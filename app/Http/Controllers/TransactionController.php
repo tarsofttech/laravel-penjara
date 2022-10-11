@@ -32,7 +32,31 @@ class TransactionController extends Controller
         $transaction->amount = $request->amount;
         $transaction->save();
 
-        // return to create form
-        return redirect()->back();
+        // return to index
+        return redirect()->route('transactions:index');
+    }
+
+    public function show(Transaction $transaction)
+    {
+        // return to views
+        return view('transactions.show', compact('transaction'));
+
+    }
+
+    public function edit(Transaction $transaction)
+    {
+        // return to views
+        return view('transactions.edit', compact('transaction'));
+
+    }
+
+    public function update(Request $request, Transaction $transaction)
+    {
+        $transaction->title = $request->title;
+        $transaction->amount = $request->amount;
+        $transaction->save();
+
+        // return to index
+        return redirect()->route('transactions:index');
     }
 }

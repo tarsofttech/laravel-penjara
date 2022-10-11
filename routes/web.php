@@ -22,10 +22,19 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // index transaction
-Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index']);
+Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index'])->name('transactions:index');
 
 // create transaction
-Route::get('/transactions/create', [App\Http\Controllers\TransactionController::class, 'create']);
+Route::get('/transactions/create', [App\Http\Controllers\TransactionController::class, 'create'])->name('transactions:create');
 
 // store transaction
-Route::post('/transactions/create', [App\Http\Controllers\TransactionController::class, 'store']);
+Route::post('/transactions/create', [App\Http\Controllers\TransactionController::class, 'store'])->name('transactions:store');
+
+// show transaction
+Route::get('/transactions/{transaction}', [App\Http\Controllers\TransactionController::class, 'show'])->name('transactions:show');
+
+// edit transaction
+Route::get('/transactions/{transaction}/edit', [App\Http\Controllers\TransactionController::class, 'edit'])->name('transactions:edit');
+
+// update transaction
+Route::post('/transactions/{transaction}/edit', [App\Http\Controllers\TransactionController::class, 'update'])->name('transactions:update');

@@ -24,7 +24,8 @@
                                 <td>{{ $transaction->title }}</td>
                                 <td>{{ $transaction->amount }}</td>
                                 <td>
-                                    
+                                    <a href="{{ route('transactions:show', $transaction) }}" class="btn btn-primary">Show<a>
+                                    <a href="{{ route('transactions:edit', $transaction) }}" class="btn btn-success">Edit<a>
                                 </td>
                             </tr>
                             @endforeach
