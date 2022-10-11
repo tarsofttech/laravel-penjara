@@ -21,4 +21,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// index transaction
 Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index']);
+
+// create transaction
+Route::get('/transactions/create', [App\Http\Controllers\TransactionController::class, 'create']);
+
+// store transaction
+Route::post('/transactions/create', [App\Http\Controllers\TransactionController::class, 'store']);

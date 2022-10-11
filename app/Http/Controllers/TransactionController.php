@@ -16,4 +16,23 @@ class TransactionController extends Controller
         return view('transactions.index', compact('transactions'));
 
     }
+
+    public function create()
+    {
+        // go to views create: resources/views/transactions/create.blade.php
+        return view('transactions.create');
+    }
+
+    public function store(Request $request)
+    {
+        // store input from form to table transactions - by using Model - Transaction
+        // Method 1 : POPO - Plain Old PHP Object
+        $transaction = new Transaction();
+        $transaction->title = $request->title;
+        $transaction->amount = $request->amount;
+        $transaction->save();
+
+        // return to create form
+        return redirect()->back();
+    }
 }
