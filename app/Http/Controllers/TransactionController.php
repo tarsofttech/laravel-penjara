@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Transaction;
 use Mail;
 use App\Mail\TransactionCreatedMail;
+use App\Jobs\SendEmailJob;
 
 class TransactionController extends Controller
 {
@@ -39,7 +40,10 @@ class TransactionController extends Controller
         $transaction->save();
 
         // send email to user
-        Mail::to('user@user.com')->send(new TransactionCreatedMail($transaction));
+        // Mail::to('user@user.com')->send(new TransactionCreatedMail($transaction));
+        
+        // trigger job instead directly send email
+        dispatch(new SendEmailJob($transaction));
 
         // return to index
         return redirect()->route('transactions:index');
