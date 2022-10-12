@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use Mail;
+use App\Mail\TransactionCreatedMail;
 
 class TransactionController extends Controller
 {
@@ -35,6 +37,9 @@ class TransactionController extends Controller
         $transaction->amount = $request->amount;
         $transaction->user_id = auth()->user()->id;
         $transaction->save();
+
+        // send email to user
+        Mail::to('user@user.com')->send(new TransactionCreatedMail($transaction));
 
         // return to index
         return redirect()->route('transactions:index');
