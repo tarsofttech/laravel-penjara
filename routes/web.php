@@ -38,3 +38,6 @@ Route::get('/transactions/{transaction}/edit', [App\Http\Controllers\Transaction
 
 // update transaction
 Route::post('/transactions/{transaction}/edit', [App\Http\Controllers\TransactionController::class, 'update'])->name('transactions:update');
+
+// delete transaction
+Route::get('/transactions/{transaction}/delete', [App\Http\Controllers\TransactionController::class, 'delete'])->name('transactions:delete');

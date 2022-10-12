@@ -26,6 +26,7 @@
                                 <td>
                                     <a href="{{ route('transactions:show', $transaction) }}" class="btn btn-primary">Show<a>
                                     <a href="{{ route('transactions:edit', $transaction) }}" class="btn btn-success">Edit<a>
+                                    <a onclick="return confirm('Are you sure?')" href="{{ route('transactions:delete', $transaction) }}" class="btn btn-danger">Delete<a>
                                 </td>
                             </tr>
                             @endforeach
