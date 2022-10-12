@@ -17,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// http://127.0.0.1:8000/api/test 
+// http://penjara-training.test/api/test
+Route::get('/test', function(){
+    return 'test';
+});
+
+// send in json
+Route::get('/test-rest-api', function(){
+    return response()->json([
+        'message' => 'All services is okay!'
+    ]);
+});
