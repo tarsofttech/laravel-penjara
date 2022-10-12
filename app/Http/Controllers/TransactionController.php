@@ -12,6 +12,9 @@ class TransactionController extends Controller
         // query all transactions from tables transactions : select * from transactions
         $transactions = Transaction::all();
 
+        // query logged in user transactions only
+        // $transactions = auth()->user()->transactions;
+
         // go to views index: resources/views/transactions/index.blade.php
         return view('transactions.index', compact('transactions'));
 
@@ -30,6 +33,7 @@ class TransactionController extends Controller
         $transaction = new Transaction();
         $transaction->title = $request->title;
         $transaction->amount = $request->amount;
+        $transaction->user_id = auth()->user()->id;
         $transaction->save();
 
         // return to index

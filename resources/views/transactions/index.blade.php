@@ -14,6 +14,7 @@
                                 <th>ID</th>
                                 <th>Title</th>
                                 <th>Amount</th>
+                                <th>Creator</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -23,6 +24,7 @@
                                 <td>{{ $transaction->id }}</td>
                                 <td>{{ $transaction->title }}</td>
                                 <td>{{ $transaction->amount }}</td>
+                                <td> {{ $transaction->user->name }} </td>
                                 <td>
                                     <a href="{{ route('transactions:show', $transaction) }}" class="btn btn-primary">Show<a>
                                     <a href="{{ route('transactions:edit', $transaction) }}" class="btn btn-success">Edit<a>
