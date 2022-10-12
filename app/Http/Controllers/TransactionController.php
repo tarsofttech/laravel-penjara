@@ -49,6 +49,8 @@ class TransactionController extends Controller
 
     public function edit(Transaction $transaction)
     {
+        $this->authorize('update', $transaction);
+
         // return to views
         return view('transactions.edit', compact('transaction'));
 
@@ -56,6 +58,8 @@ class TransactionController extends Controller
 
     public function update(Request $request, Transaction $transaction)
     {
+        $this->authorize('update', $transaction);
+
         $transaction->title = $request->title;
         $transaction->amount = $request->amount;
         $transaction->save();
@@ -66,6 +70,8 @@ class TransactionController extends Controller
 
     public function delete(Transaction $transaction)
     {
+        $this->authorize('delete', $transaction);
+
         $transaction->delete();
 
         return redirect()->route('transactions:index');
