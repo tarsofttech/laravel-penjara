@@ -30,3 +30,5 @@ Route::get('/test-rest-api', function(){
         'message' => 'All services is okay!'
     ]);
 });
+
+Route::get('/transactions', [App\Http\Controllers\APIController::class, 'index']);
