@@ -4,9 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Transaction;
 
-class TransactionTableSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,9 +14,6 @@ class TransactionTableSeeder extends Seeder
      */
     public function run()
     {
-        Transaction::create([
-            'title' => 'Beli Komputer',
-            'amount' => 8499.00,
-        ]);
+        //
     }
 }
